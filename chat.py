@@ -16,7 +16,11 @@ app.secret_key = 'SECRET'
 
  # Instantiate a new web application called `app`, with `__name__` representing the current file
 #Configure database
+<<<<<<< HEAD
 app.config['SQLALCHEMY_DATABASE_URI']="DATABASE_URL"
+=======
+app.config['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
+>>>>>>> 2ac7b7d318f7951e5f12c03e60bc0cbb0981ea1a
 # Configure session to use filesystem
 # Set up database
 db = SQLAlchemy(app)
