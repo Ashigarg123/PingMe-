@@ -1,0 +1,71 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  <title>
+    PingMe!
+    </title>
+    <style>
+body  {
+  background-image: url("https://lh3.googleusercontent.com/proxy/ozCUHZk30_8LV0zWHJiHNxDrQ2Iv84AfrIQ7HNujfgrmP0lh-C_B8a5379NTgK4n8dWkvFfwrkygYry_YeEhsHY4ZSDp0HN7fQZV4eL_T6Q1awhwbA2Pv5kWEW_XBAg");
+  background-color: #9678b6;
+   background-repeat: no-repeat, repeat;
+
+}
+
+</style>
+
+    </head>
+    <body>
+<h1 class="container"> Hey!! Welcome to<mark>PingMe!</mark> Start by creating an account! </h1>
+</br>
+</br>
+<div class="container">
+<blockquote>
+  <h3 class="animated bounce infinite"><kbd>There are no strangers here, only friends, you haven't yet met. <kbd></h3>
+  <footer> ---William Butler Yeats </footer>
+</blockquote>
+</br>
+</div>
+<div class="container">
+
+<form action="{{ url_for('index')}}", method="POST">
+{{ form.username(class_='form-control', placeholder='Username', autocomplete='off') }}
+<ul>
+  {% for error in form.username.errors %}
+  <li> {{ error }}</li>
+  {% endfor %}
+</ul>
+  {{ form.password(class_='form-control', placeholder='Password') }}
+  <ul>
+    {% for error in form.password.errors %}
+    <li> {{ error }}</li>
+    {% endfor %}
+  </ul>
+
+    {{ form.confirm_pswd(class_='form-control', placeholder='Retype password') }}
+    <ul>
+      {% for error in form.confirm_pswd.errors %}
+      <li> {{ error }}</li>
+      {% endfor %}
+    </ul>
+
+      {{ form.submit_button }}
+
+
+{{ form.csrf_token }}
+</form>
+</div>
+<div class="container">
+  <p>Already registered? <a href={{url_for('login')}}>Login here</a></p>
+</div>
+</body>
+</html>
