@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-   var socket = io.connect('http://127.0.0.1:5000');
+   var socket = io.connect('ws://herokuapp.com/socket.io/?EIO=4&transport=websocket');
 
    let room="games";
    joinRoom('games');
