@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< HEAD
    var socket = io.connect('http://startchitchat.herokuapp.com/socketio/?EIO=4&transport=websocket');
+=======
+   var socket = io.connect('ws://herokuapp.com/socket.io/?EIO=4&transport=websocket');
+>>>>>>> dc225f233b493df37068fab803ccae1b5a85c48d
 
    let room="games";
    joinRoom('games');
