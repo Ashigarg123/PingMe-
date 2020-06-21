@@ -16,7 +16,7 @@ app.secret_key = 'SECRET'
 
  # Instantiate a new web application called `app`, with `__name__` representing the current file
 #Configure database
-app.config['SQLALCHEMY_DATABASE_URI']="DATABASE_URL"
+app.config['SQLALCHEMY_DATABASE_URI']="postgres://qeddxtfgqwocqm:c4f59b7108e4574bed8b9f9e5f0f6346af908a0df7bb60d8f172a78a2238014c@ec2-52-0-155-79.compute-1.amazonaws.com:5432/d9ojp45an07gdj"
 # Configure session to use filesystem
 # Set up database
 db = SQLAlchemy(app)
