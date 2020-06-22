@@ -1,4 +1,6 @@
 import os
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session, sessionmaker
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask,render_template, redirect, url_for,flash
 from passlib.hash import pbkdf2_sha256
@@ -21,6 +23,13 @@ app.config['WTF_CSRF_SECRET_KEY'] = b'_5#y2L"F4Q8z\n\xec]/'
 app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Configure session to use filesystem
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+# Set up database
+engine = create_engine(os.getenv("DATABASE_URL"))
+db = scoped_session(sessionmaker(bind=engine))
 # Set up database
 db = SQLAlchemy(app)
 # database engine object from SQLAlchemy that manages connections to the database
