@@ -1,3 +1,4 @@
+import time
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
@@ -106,8 +107,9 @@ def logout():
 # recieving message in the form of data
 def message(data):
     print(f"\n\n{data}\n\n")
+    time_stamp = time.strftime('%b-%d %I:%M%p', time.localtime())
     #To broacast this message to frnds or other users!
-    send({'msg': data['msg'] , 'username': data['username'] },room=data['room'] )
+    send({'msg': data['msg'] , 'username': data['username'], "time_stamp": time_stamp},room=data['room'] )
     #To specify which event bucket we want to send data , we use emit
     #emit('event', "This is a custom event message")
 
