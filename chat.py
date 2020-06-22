@@ -22,7 +22,10 @@ app.config['WTF_CSRF_SECRET_KEY'] = b'_5#y2L"F4Q8z\n\xec]/'
 
 app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 # Configure session to use filesystem
+
+
 
 
 # Set up database
