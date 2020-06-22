@@ -1,3 +1,4 @@
+import os
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask,render_template, redirect, url_for,flash
 from passlib.hash import pbkdf2_sha256
@@ -12,15 +13,13 @@ app = Flask(__name__)
 # Check for environment variable
 
 
-app.secret_key = 'SECRET'
-
+app.secret_key = os.environ.get('SECRET')
+app.config['WTF_CSRF_SECRET_KEY'] = b'_5#y2L"F4Q8z\n\xec]/'
  # Instantiate a new web application called `app`, with `__name__` representing the current file
 #Configure database
-<<<<<<< HEAD
-app.config['SQLALCHEMY_DATABASE_URI']="DATABASE_URL"
-=======
-app.config['SQLALCHEMY_DATABASE_URI']='DATABASE_URL'
->>>>>>> 2ac7b7d318f7951e5f12c03e60bc0cbb0981ea1a
+
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("DATABASE_URL")
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # Configure session to use filesystem
 # Set up database
 db = SQLAlchemy(app)
