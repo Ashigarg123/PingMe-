@@ -29,7 +29,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 # Set up database
-engine = create_engine("DATABASE_URL",pool_size=20, max_overflow=0)
+engine = create_engine('postgresql://me@localhost/mydb',pool_size=20, max_overflow=0)
 db = scoped_session(sessionmaker(bind=engine))
 # Set up database
 db = SQLAlchemy(app)
